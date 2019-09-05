@@ -3,25 +3,37 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66525D2860234B95628B2F6E /* Pods_ToDoRealmApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86448BFF0022FD36EBCACB32 /* Pods_ToDoRealmApp.framework */; };
 		FB5475CA2320B628006FBB2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5475C92320B628006FBB2E /* AppDelegate.swift */; };
-		FB5475CC2320B628006FBB2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5475CB2320B628006FBB2E /* ViewController.swift */; };
 		FB5475CF2320B628006FBB2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB5475CD2320B628006FBB2E /* Main.storyboard */; };
 		FB5475D12320B62B006FBB2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB5475D02320B62B006FBB2E /* Assets.xcassets */; };
 		FB5475D42320B62B006FBB2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB5475D22320B62B006FBB2E /* LaunchScreen.storyboard */; };
+		FB5475DC2320B725006FBB2E /* TasksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5475DB2320B725006FBB2E /* TasksListViewController.swift */; };
+		FB5475DE2320B7BA006FBB2E /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5475DD2320B7BA006FBB2E /* TasksViewController.swift */; };
+		FB5475E02320DEEA006FBB2E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5475DF2320DEEA006FBB2E /* Task.swift */; };
+		FB5475E22320DF3A006FBB2E /* TasksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5475E12320DF3A006FBB2E /* TasksList.swift */; };
+		FB5475E42320F140006FBB2E /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5475E32320F140006FBB2E /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5CF99B291DBAC56C07CA9232 /* Pods-ToDoRealmApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoRealmApp.debug.xcconfig"; path = "Target Support Files/Pods-ToDoRealmApp/Pods-ToDoRealmApp.debug.xcconfig"; sourceTree = "<group>"; };
+		86448BFF0022FD36EBCACB32 /* Pods_ToDoRealmApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoRealmApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8780BF7E9088B6496511F61 /* Pods-ToDoRealmApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoRealmApp.release.xcconfig"; path = "Target Support Files/Pods-ToDoRealmApp/Pods-ToDoRealmApp.release.xcconfig"; sourceTree = "<group>"; };
 		FB5475C62320B628006FBB2E /* ToDoRealmApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoRealmApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB5475C92320B628006FBB2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FB5475CB2320B628006FBB2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FB5475CE2320B628006FBB2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB5475D02320B62B006FBB2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB5475D32320B62B006FBB2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB5475D52320B62B006FBB2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB5475DB2320B725006FBB2E /* TasksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListViewController.swift; sourceTree = "<group>"; };
+		FB5475DD2320B7BA006FBB2E /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		FB5475DF2320DEEA006FBB2E /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		FB5475E12320DF3A006FBB2E /* TasksList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksList.swift; sourceTree = "<group>"; };
+		FB5475E32320F140006FBB2E /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66525D2860234B95628B2F6E /* Pods_ToDoRealmApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84AA50A9C0E52CCBC02A4223 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				86448BFF0022FD36EBCACB32 /* Pods_ToDoRealmApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C14011480473F2BA587A5BF9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5CF99B291DBAC56C07CA9232 /* Pods-ToDoRealmApp.debug.xcconfig */,
+				A8780BF7E9088B6496511F61 /* Pods-ToDoRealmApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FB5475BD2320B628006FBB2E = {
 			isa = PBXGroup;
 			children = (
 				FB5475C82320B628006FBB2E /* ToDoRealmApp */,
 				FB5475C72320B628006FBB2E /* Products */,
+				C14011480473F2BA587A5BF9 /* Pods */,
+				84AA50A9C0E52CCBC02A4223 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,11 +87,15 @@
 			isa = PBXGroup;
 			children = (
 				FB5475C92320B628006FBB2E /* AppDelegate.swift */,
-				FB5475CB2320B628006FBB2E /* ViewController.swift */,
 				FB5475CD2320B628006FBB2E /* Main.storyboard */,
+				FB5475DF2320DEEA006FBB2E /* Task.swift */,
+				FB5475E12320DF3A006FBB2E /* TasksList.swift */,
 				FB5475D02320B62B006FBB2E /* Assets.xcassets */,
 				FB5475D22320B62B006FBB2E /* LaunchScreen.storyboard */,
 				FB5475D52320B62B006FBB2E /* Info.plist */,
+				FB5475DB2320B725006FBB2E /* TasksListViewController.swift */,
+				FB5475E32320F140006FBB2E /* StorageManager.swift */,
+				FB5475DD2320B7BA006FBB2E /* TasksViewController.swift */,
 			);
 			path = ToDoRealmApp;
 			sourceTree = "<group>";
@@ -71,9 +107,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB5475D82320B62B006FBB2E /* Build configuration list for PBXNativeTarget "ToDoRealmApp" */;
 			buildPhases = (
+				F8A8A4C79EE14D2CDA2E39D5 /* [CP] Check Pods Manifest.lock */,
 				FB5475C22320B628006FBB2E /* Sources */,
 				FB5475C32320B628006FBB2E /* Frameworks */,
 				FB5475C42320B628006FBB2E /* Resources */,
+				AD45628A10AF24D6F7F78671 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,13 +168,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AD45628A10AF24D6F7F78671 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ToDoRealmApp/Pods-ToDoRealmApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ToDoRealmApp/Pods-ToDoRealmApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ToDoRealmApp/Pods-ToDoRealmApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8A8A4C79EE14D2CDA2E39D5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ToDoRealmApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FB5475C22320B628006FBB2E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB5475CC2320B628006FBB2E /* ViewController.swift in Sources */,
+				FB5475E02320DEEA006FBB2E /* Task.swift in Sources */,
 				FB5475CA2320B628006FBB2E /* AppDelegate.swift in Sources */,
+				FB5475E22320DF3A006FBB2E /* TasksList.swift in Sources */,
+				FB5475E42320F140006FBB2E /* StorageManager.swift in Sources */,
+				FB5475DC2320B725006FBB2E /* TasksListViewController.swift in Sources */,
+				FB5475DE2320B7BA006FBB2E /* TasksViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +364,7 @@
 		};
 		FB5475D92320B62B006FBB2E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CF99B291DBAC56C07CA9232 /* Pods-ToDoRealmApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +383,7 @@
 		};
 		FB5475DA2320B62B006FBB2E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8780BF7E9088B6496511F61 /* Pods-ToDoRealmApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
