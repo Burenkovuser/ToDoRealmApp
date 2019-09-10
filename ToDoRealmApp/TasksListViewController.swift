@@ -27,8 +27,13 @@ class TasksListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         //заполняем созданную выше коллекцию элементами из базы данных
         tasksLists = realm.objects(TasksList.self)
+        
+        if realm.isEmpty {
+            NSObject.load()
+        }
         
         // создаем списки разными способами
         
@@ -122,6 +127,29 @@ class TasksListViewController: UITableViewController {
             let tasksVC = segue.destination as! TasksViewController
             tasksVC.currentTasksList = tasksList
         }
+    }
+}
+
+private func load() {
+    
+    let shoppingList = TasksList()
+    shoppingList.name = "Shopping List"
+    
+    let moviesList = TasksList(value: ["Movie List", Date(), [["John Wick"], ["Tor", "", Date(), true]]])
+    
+    let milk = Task()
+    milk.name = "Milk"
+    milk.note = "2L"
+    
+    let bread = Task(value: ["Bread", "", Date(), true])
+    let apples = Task(value: ["name": "Apples", "note": "2Kg"])
+    
+    shoppingList.tasks.append(milk)
+    shoppingList.tasks.insert(contentsOf: [bread, apples], at: 1)
+    
+    // добавляем списки в базу и чтобы не занимать весь поток делаем асинхронно
+    DispatchQueue.main.async {
+        StorageManager.saveTaskLists([shoppingList, moviesList])
     }
 }
 
