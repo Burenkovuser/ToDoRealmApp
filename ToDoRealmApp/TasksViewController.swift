@@ -13,10 +13,15 @@ class TasksViewController: UITableViewController {
     
     var currentTasksList: TasksList!
     
-    var currentTasks: Results<Task>!
-    var completedTasks: Results<Task>!
+    private var currentTasks: Results<Task>!
+    private var completedTasks: Results<Task>!
+    
+    //для редактирования кнопка
+    private var isEditingMode = false
     
     @IBAction func editButtonPressed(_ sender: Any) {
+        isEditingMode.toggle()
+        tableView.setEditing(isEditingMode, animated: true)
     }
     
     @IBAction func addButtonPressed(_ sender: Any) {
@@ -58,6 +63,36 @@ class TasksViewController: UITableViewController {
 
         return cell
     }
+    
+    // MARK: - Table view delegate
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        var task: Task!
+        
+        task = indexPath.section == 0 ? currentTasks[indexPath.row] : completedTasks[indexPath.row]
+        
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (_, _) in
+            StorageManager.deleteTask(task)
+            self.filteringTasks()
+        }
+        
+        let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (_, _) in
+            self.alertForAddAndUpdateList(task)
+            self.filteringTasks()
+        }
+        
+        let doneAction = UITableViewRowAction(style: .normal, title: "Done") { (_, _) in
+            StorageManager.makeDone(task)
+            self.filteringTasks()
+        }
+        
+        editAction.backgroundColor = .orange
+        doneAction.backgroundColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
+        
+        return [deleteAction, doneAction, editAction]
+    }
+    
+    
     // заполняем массивы
     private func filteringTasks() {
         currentTasks = currentTasksList.tasks.filter("isCompleted = false")
@@ -65,67 +100,51 @@ class TasksViewController: UITableViewController {
         
         tableView.reloadData()
     }
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension TasksViewController {
     
-    private func alertForAddAndUpdateList() {
+    private func alertForAddAndUpdateList(_ taskName: Task? = nil) {
         
-        let alert = UIAlertController(title: "New Task", message: "Please insert task value", preferredStyle: .alert)
+        var title = "New Task"
+        var doneButton = "Save"
+        
+        if taskName != nil {
+            title = "Edit Task"
+            doneButton = "Update"
+        }
+        
+        let alert = UIAlertController(title: title, message: "Please insert task value", preferredStyle: .alert)
         var taskTextField: UITextField!
         var noteTextField: UITextField!
         
-        let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
-            guard let text = taskTextField.text , !text.isEmpty else { return }
+        let saveAction = UIAlertAction(title: doneButton, style: .default) { _ in
+            guard let newTask = taskTextField.text , !newTask.isEmpty else { return }
             
+            if let taskName = taskName {
+                if let newNote = noteTextField.text, !newNote.isEmpty {
+                    StorageManager.editTask(taskName, newTask: newTask, newNote: newNote)
+                } else {
+                    StorageManager.editTask(taskName, newTask: newTask, newNote: "")
+                }
+                
+                self.filteringTasks()
+                
+            } else {
+                
+                let task = Task()
+                task.name = newTask
+                
+                if let note = noteTextField.text, !note.isEmpty {
+                    task.note = note
+                }
+                
+                StorageManager.saveTask(self.currentTasksList, task: task)
+                self.filteringTasks()
+            }
         }
         
+     
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
         
         alert.addAction(saveAction)
@@ -134,11 +153,19 @@ extension TasksViewController {
         alert.addTextField { textField in
             taskTextField = textField
             taskTextField.placeholder = "New task"
+            
+            if let taskName = taskName {
+                taskTextField.text = taskName.name
+            }
         }
         
         alert.addTextField { textField in
             noteTextField = textField
             noteTextField.placeholder = "Note"
+            
+            if let taskName = taskName {
+                noteTextField.text = taskName.note
+            }
         }
         
         present(alert, animated: true)

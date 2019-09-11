@@ -12,7 +12,7 @@
         <!--Tasks Lists-->
         <scene sceneID="tkT-GX-wp9">
             <objects>
-                <tableViewController id="F61-f0-Ik5" customClass="TasksListViewController" customModule="RealmApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="F61-f0-Ik5" customClass="TasksListViewController" customModule="ToDoRealmApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hte-zz-Gba">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,11 +63,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Tasks Lists" id="KJA-2q-jk7">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="Cck-h1-tF5">
-                            <connections>
-                                <action selector="editButtonPressed:" destination="F61-f0-Ik5" id="ePd-R4-GkM"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="9jR-L2-1lU">
                             <connections>
                                 <action selector="addButtonPressed:" destination="F61-f0-Ik5" id="IZA-Np-cH5"/>
@@ -82,7 +77,7 @@
         <!--Tasks View Controller-->
         <scene sceneID="ZBf-By-37e">
             <objects>
-                <tableViewController id="QK0-vJ-iUb" customClass="TasksViewController" customModule="RealmApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="QK0-vJ-iUb" customClass="TasksViewController" customModule="ToDoRealmApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="n8n-GU-XfP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
